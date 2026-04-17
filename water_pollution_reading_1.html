@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google" content="notranslate">
+<title>Water Pollution – Reading Comprehension</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script>
+// ── BLOCK ALL TRANSLATION ATTEMPTS ──
+// 1. Force lang=en and translate=no on every mutation
+(function() {
+  function lockTranslation() {
+    document.documentElement.setAttribute('lang', 'en');
+    document.documentElement.setAttribute('translate', 'no');
+    // Remove any <font> tags injected by Google Translate
+    document.querySelectorAll('font[_mstmutation], .notranslate ~ font').forEach(f => {
+      if (f.parentNode) f.parentNode.replaceChild(document.createTextNode(f.textContent), f);
+    });
+  }
+
+  // Watch for Google Translate changing the <html> lang attribute
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(m) {
+      if (m.type === 'attributes') {
+        if (m.attributeName === 'lang' && document.documentElement.lang !== 'en') {
+          document.documentElement.setAttribute('lang', 'en');
+        }
+        if (m.attributeName === 'class') {
+          // Google Translate adds "translated-ltr" or "translated-rtl" class
+          const cls = document.documentElement.className;
+          if (cls.includes('translated')) {
+            document.documentElement.className = cls.replace(/translated-\S+/g, '').trim();
+            // Reload page to fully revert translation
+            window.location.reload();
+          }
+        }
+      }
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    lockTranslation();
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'class'] });
+
+    // Block Google Translate script injection
+    const scriptObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(m) {
+        m.addedNodes.forEach(function(node) {
+          if (node.tagName === 'SCRIPT' &&
+              node.src && node.src.includes('translate.google')) {
+            node.parentNode.removeChild(node);
+          }
+        });
+      });
+    });
+    scriptObserver.observe(document.head, { childList: true });
+  });
+})();
+</script>
+<style>
+  :root {
+    --ocean: #0a3d62;
+    --wave: #1e6fa8;
+    --foam: #e8f4fd;
+    --sand: #f5f0e8;
+    --coral: #e74c3c;
+    --gold: #f39c12;
+    --green: #27ae60;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --white: #ffffff;
+    --correct: #d4edda;
+    --wrong: #f8d7da;
+    --border-correct: #28a745;
+    --border-wrong: #dc3545;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--sand);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── WAVES HEADER ── */
+  .hero {
+    background: linear-gradient(160deg, var(--ocean) 0%, var(--wave) 60%, #3498db 100%);
+    padding: 48px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 60px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60'%3E%3Cpath d='M0,30 C200,0 400,60 600,30 C800,0 1000,60 1200,30 L1200,60 L0,60Z' fill='%23f5f0e8'/%3E%3C/svg%3E") no-repeat bottom center / cover;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.9);
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .hero p {
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* ── REGISTRATION SCREEN ── */
+  #registration-screen {
+    margin-top: -30px;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(10,61,98,0.12);
+    padding: 40px 40px 48px;
+    position: relative;
+  }
+  #registration-screen h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--ocean);
+    margin-bottom: 6px;
+  }
+  #registration-screen .sub {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+  .reg-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 540px) { .reg-grid { grid-template-columns: 1fr; } }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .field label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ocean);
+  }
+  .field input, .field select {
+    padding: 12px 16px;
+    border: 2px solid #dde6f0;
+    border-radius: 10px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    color: var(--text);
+    background: var(--foam);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .field input:focus, .field select:focus {
+    border-color: var(--wave);
+    background: var(--white);
+  }
+  .start-btn {
+    margin-top: 28px;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--ocean), var(--wave));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 20px rgba(10,61,98,0.25);
+  }
+  .start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(10,61,98,0.35);
+  }
+  .warning-note {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: #fff3cd;
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    font-size: 13px;
+    color: #856404;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  /* ── QUIZ SCREEN ── */
+  #quiz-screen { display: none; padding-top: 28px; }
+
+  .student-bar {
+    margin-top: 0;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(10,61,98,0.12);
+    padding: 18px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .student-info { display: flex; align-items: center; gap: 12px; }
+  .student-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--ocean), var(--wave));
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 16px;
+  }
+  .student-name { font-weight: 600; font-size: 15px; }
+  .student-class { color: var(--muted); font-size: 13px; }
+  .progress-bar {
+    flex: 1; min-width: 120px; max-width: 200px;
+    height: 6px;
+    background: #dde6f0;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--wave), #3498db);
+    border-radius: 3px;
+    transition: width 0.4s;
+    width: 0%;
+  }
+  .progress-text { font-size: 12px; color: var(--muted); }
+
+  /* ── RESUME BANNER ── */
+  #resume-banner {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #e8f4fd, #d0eaf8);
+    border: 2px solid var(--wave);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .resume-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    background: var(--wave);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .resume-info { flex: 1; min-width: 160px; }
+  .resume-title { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--ocean); font-weight: 700; margin-bottom: 3px; }
+  .resume-meta { font-size: 13px; color: #2d5a88; }
+  .resume-btns { display: flex; gap: 8px; flex-shrink: 0; }
+  .resume-btn-yes {
+    padding: 9px 20px;
+    background: linear-gradient(135deg, var(--ocean), var(--wave));
+    color: white; border: none; border-radius: 8px;
+    font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700;
+    cursor: pointer; transition: transform 0.15s;
+  }
+  .resume-btn-yes:hover { transform: translateY(-1px); }
+  .resume-btn-no {
+    padding: 9px 16px;
+    background: transparent;
+    color: var(--ocean); border: 2px solid var(--wave); border-radius: 8px;
+    font-family: 'Source Serif 4', serif; font-size: 13px;
+    cursor: pointer; transition: background 0.15s;
+  }
+  .resume-btn-no:hover { background: rgba(30,111,168,0.1); }
+
+  /* ── SECTION CARDS ── */
+  .section {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(10,61,98,0.08);
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .section-header {
+    padding: 20px 28px 16px;
+    border-bottom: 2px solid var(--foam);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .icon-skim { background: #e3f2fd; }
+  .icon-scan { background: #f3e5f5; }
+  .icon-detail { background: #e8f5e9; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--ocean);
+  }
+  .section-type {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 2px;
+  }
+  .section-body { padding: 24px 28px; }
+
+  /* ── QUESTIONS ── */
+  .question { margin-bottom: 28px; }
+  .question:last-child { margin-bottom: 0; }
+  .q-text {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .q-num {
+    display: inline-block;
+    background: var(--ocean);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* MCQ OPTIONS */
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 2px solid #dde6f0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--foam);
+    user-select: none;
+  }
+  .option:hover:not(.disabled) { border-color: var(--wave); background: #d0eaf8; }
+  .option.selected { border-color: var(--wave); background: #cce5ff; }
+  .option.correct { border-color: var(--border-correct); background: var(--correct); }
+  .option.wrong { border-color: var(--border-wrong); background: var(--wrong); }
+  .option.reveal-correct { border-color: var(--border-correct); background: var(--correct); }
+  .option.disabled { pointer-events: none; }
+  .opt-letter {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--ocean);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .option.correct .opt-letter { background: var(--border-correct); }
+  .option.wrong .opt-letter { background: var(--border-wrong); }
+  .option.reveal-correct .opt-letter { background: var(--border-correct); }
+  .opt-text { font-size: 14px; line-height: 1.4; }
+  .feedback {
+    margin-top: 10px;
+    font-size: 13px;
+    font-style: italic;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: none;
+  }
+  .feedback.show { display: block; }
+  .feedback.ok { background: #d4edda; color: #155724; }
+  .feedback.no { background: #f8d7da; color: #721c24; }
+
+  /* TRUE/FALSE */
+  .tf-group { display: flex; gap: 10px; }
+  .tf-btn {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #dde6f0;
+    border-radius: 10px;
+    background: var(--foam);
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .tf-btn:hover:not(.disabled) { border-color: var(--wave); }
+  .tf-btn.selected { border-color: var(--wave); background: #cce5ff; }
+  .tf-btn.correct { border-color: var(--border-correct); background: var(--correct); color: #155724; }
+  .tf-btn.wrong { border-color: var(--border-wrong); background: var(--wrong); color: #721c24; }
+  .tf-btn.reveal-correct { border-color: var(--border-correct); background: var(--correct); color: #155724; }
+  .tf-btn.disabled { pointer-events: none; }
+
+  /* FILL-IN INPUT */
+  .fill-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #dde6f0;
+    border-radius: 10px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    background: var(--foam);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .fill-input:focus { border-color: var(--wave); background: var(--white); }
+  .fill-input.correct { border-color: var(--border-correct); background: var(--correct); }
+  .fill-input.wrong { border-color: var(--border-wrong); background: var(--wrong); }
+  .fill-input:disabled { pointer-events: none; }
+  .check-btn {
+    margin-top: 10px;
+    padding: 9px 22px;
+    background: var(--ocean);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .check-btn:hover { background: var(--wave); }
+  .check-btn:disabled { background: #adb5bd; pointer-events: none; }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .match-col-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .match-item {
+    padding: 10px 14px;
+    border: 2px solid #dde6f0;
+    border-radius: 10px;
+    background: var(--foam);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+    line-height: 1.4;
+  }
+  .match-item:hover:not(.disabled):not(.matched) { border-color: var(--wave); }
+  .match-item.active { border-color: var(--gold); background: #fff3cd; }
+  .match-item.matched { border-color: var(--border-correct); background: var(--correct); pointer-events: none; }
+  .match-item.wrong-match { border-color: var(--border-wrong); background: var(--wrong); animation: shake 0.3s; }
+  .match-item.disabled { pointer-events: none; }
+  @keyframes shake {
+    0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)}
+  }
+
+  /* ORDER */
+  .order-list { display: flex; flex-direction: column; gap: 8px; }
+  .order-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border: 2px solid #dde6f0;
+    border-radius: 10px;
+    background: var(--foam);
+    cursor: grab;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    font-size: 14px;
+    user-select: none;
+    touch-action: none;
+    -webkit-user-select: none;
+  }
+  .order-item:active { cursor: grabbing; }
+  .order-item.dragging { opacity: 0.5; box-shadow: 0 4px 20px rgba(10,61,98,0.2); }
+  .order-item.over { border-color: var(--wave); }
+  .order-item.correct-order { border-color: var(--border-correct); background: var(--correct); }
+  .order-handle { color: #adb5bd; font-size: 16px; }
+
+  /* SUBMIT & RESULTS */
+  .submit-section {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(10,61,98,0.08);
+    padding: 32px 36px;
+    text-align: center;
+  }
+  .submit-btn {
+    padding: 16px 48px;
+    background: linear-gradient(135deg, var(--ocean), var(--wave));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(10,61,98,0.25);
+    transition: transform 0.15s, box-shadow 0.15s;
+    letter-spacing: 0.5px;
+  }
+  .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(10,61,98,0.35); }
+  .submit-note { margin-top: 12px; font-size: 13px; color: var(--muted); font-style: italic; }
+
+  #results-screen { display: none; margin-bottom: 40px; }
+  .result-card {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(10,61,98,0.12);
+    padding: 40px;
+    text-align: center;
+    margin-top: 28px;
+  }
+  .score-circle {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--ocean), var(--wave));
+    color: white;
+    margin: 0 auto 20px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    box-shadow: 0 6px 30px rgba(10,61,98,0.3);
+  }
+  .score-num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900; line-height: 1; }
+  .score-total { font-size: 14px; opacity: 0.8; }
+  .grade-circle {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    color: white;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.2);
+    transition: background 0.3s;
+  }
+  .grade-circle.g5 { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+  .grade-circle.g4 { background: linear-gradient(135deg, #2980b9, #3498db); }
+  .grade-circle.g3 { background: linear-gradient(135deg, #d35400, #e67e22); }
+  .grade-circle.g2 { background: linear-gradient(135deg, #922b21, #c0392b); }
+  .grade-num { font-family: 'Playfair Display', serif; font-size: 58px; font-weight: 900; line-height: 1; }
+  .grade-label { font-size: 13px; opacity: 0.85; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+  .result-name { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--ocean); margin-bottom: 6px; }
+  .result-msg { color: var(--muted); margin-bottom: 28px; }
+  .results-list-card {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(10,61,98,0.08);
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .results-list-title {
+    background: linear-gradient(135deg, var(--ocean), var(--wave));
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px 24px;
+    letter-spacing: 0.3px;
+  }
+  .result-section-header {
+    padding: 10px 24px 6px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--wave);
+    background: var(--foam);
+    border-top: 1px solid #dde6f0;
+  }
+  .result-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 24px;
+    border-bottom: 1px solid #f0f4f8;
+    transition: background 0.15s;
+  }
+  .result-row:last-child { border-bottom: none; }
+  .result-row:hover { background: #fafcff; }
+  .result-badge {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .result-badge.ok { background: #d4edda; color: #155724; }
+  .result-badge.no { background: #f8d7da; color: #721c24; }
+  .result-q-num {
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    min-width: 22px;
+  }
+  .result-q-text {
+    flex: 1;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .result-status {
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .result-status.ok { background: #d4edda; color: #155724; }
+  .result-status.no { background: #f8d7da; color: #721c24; }
+
+  /* DIVIDER */
+  hr.wave-line {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--foam), transparent);
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hero">
+  <div class="hero-badge">English Reading Skills</div>
+  <h1>Water Pollution<br>Reading Comprehension</h1>
+  <p>Three reading modes · Skimming · Scanning · Detailed</p>
+</div>
+
+<div class="container">
+
+  <!-- ══ REGISTRATION SCREEN ══ -->
+  <div id="registration-screen">
+    <h2>Welcome, Student! 👋</h2>
+    <p class="sub">Please enter your details before starting the test. This cannot be changed once you begin.</p>
+    <div class="reg-grid">
+      <div class="field">
+        <label>Last Name</label>
+        <input type="text" id="reg-last" placeholder="e.g. Smith" autocomplete="off">
+      </div>
+      <div class="field">
+        <label>First Name</label>
+        <input type="text" id="reg-first" placeholder="e.g. Anna" autocomplete="off">
+      </div>
+      <div class="field">
+        <label>Class / Grade</label>
+        <input type="text" id="reg-class" placeholder="e.g. 7B" autocomplete="off">
+      </div>
+      <div class="field">
+        <label>Date</label>
+        <input type="text" id="reg-date" readonly>
+      </div>
+    </div>
+    <button class="start-btn" onclick="startQuiz()">Start the Test →</button>
+    <div class="warning-note">
+      ⚠️ Once you press <strong>Start</strong>, you cannot reload the page or your answers will be lost.
+    </div>
+  </div>
+
+  <!-- ══ QUIZ SCREEN ══ -->
+  <div id="quiz-screen">
+
+    <!-- Student bar -->
+    <div class="student-bar">
+      <div class="student-info">
+        <div class="student-avatar" id="avatar-initials">?</div>
+        <div>
+          <div class="student-name" id="bar-name">—</div>
+          <div class="student-class" id="bar-class">—</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="progress-text" id="progress-text">0 / 20</div>
+      </div>
+    </div>
+
+    <!-- ══ SECTION A: SKIMMING ══ -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-skim">🏄</div>
+        <div>
+          <div class="section-title">Section A — Skimming</div>
+          <div class="section-type">Reading for general understanding</div>
+        </div>
+      </div>
+      <div class="section-body">
+
+        <!-- Q1 MCQ -->
+        <div class="question" id="q1">
+          <div class="q-text"><span class="q-num">1</span> What is the text mainly about?</div>
+          <div class="options">
+            <div class="option" onclick="selectMCQ(this,'q1','A')"><div class="opt-letter">A</div><div class="opt-text">The beauty of rivers and lakes</div></div>
+            <div class="option" onclick="selectMCQ(this,'q1','B')"><div class="opt-letter">B</div><div class="opt-text">Ways to reduce water pollution</div></div>
+            <div class="option" onclick="selectMCQ(this,'q1','C')"><div class="opt-letter">C</div><div class="opt-text">How factories damage the environment</div></div>
+            <div class="option" onclick="selectMCQ(this,'q1','D')"><div class="opt-letter">D</div><div class="opt-text">The importance of swimming safely</div></div>
+          </div>
+          <div class="feedback" id="q1-fb"></div>
+        </div>
+
+        <!-- Q2 MCQ -->
+        <div class="question" id="q2">
+          <div class="q-text"><span class="q-num">2</span> What is the general tone of the text?</div>
+          <div class="options">
+            <div class="option" onclick="selectMCQ(this,'q2','A')"><div class="opt-letter">A</div><div class="opt-text">Humorous and entertaining</div></div>
+            <div class="option" onclick="selectMCQ(this,'q2','B')"><div class="opt-letter">B</div><div class="opt-text">Scary and discouraging</div></div>
+            <div class="option" onclick="selectMCQ(this,'q2','C')"><div class="opt-letter">C</div><div class="opt-text">Informative and advisory</div></div>
+            <div class="option" onclick="selectMCQ(this,'q2','D')"><div class="opt-letter">D</div><div class="opt-text">Critical and angry</div></div>
+          </div>
+          <div class="feedback" id="q2-fb"></div>
+        </div>
+
+        <!-- Q3 MCQ -->
+        <div class="question" id="q3">
+          <div class="q-text"><span class="q-num">3</span> According to the text, who is the intended audience?</div>
+          <div class="options">
+            <div class="option" onclick="selectMCQ(this,'q3','A')"><div class="opt-letter">A</div><div class="opt-text">Scientists and researchers</div></div>
+            <div class="option" onclick="selectMCQ(this,'q3','B')"><div class="opt-letter">B</div><div class="opt-text">Factory owners and managers</div></div>
+            <div class="option" onclick="selectMCQ(this,'q3','C')"><div class="opt-letter">C</div><div class="opt-text">Ordinary people in everyday life</div></div>
+            <div class="option" onclick="selectMCQ(this,'q3','D')"><div class="opt-letter">D</div><div class="opt-text">Government officials</div></div>
+          </div>
+          <div class="feedback" id="q3-fb"></div>
+        </div>
+
+        <!-- Q4 TRUE/FALSE -->
+        <div class="question" id="q4">
+          <div class="q-text"><span class="q-num">4</span> <em>True or False:</em> The text gives a hopeless picture of the water pollution problem.</div>
+          <div class="tf-group">
+            <button class="tf-btn" onclick="selectTF(this,'q4')">True</button>
+            <button class="tf-btn" onclick="selectTF(this,'q4')">False</button>
+          </div>
+          <div class="feedback" id="q4-fb"></div>
+        </div>
+
+        <!-- Q5 ORDER (SKIMMING) -->
+        <div class="question" id="q5">
+          <div class="q-text"><span class="q-num">5</span> Drag to put these main ideas in the order they appear in the text.</div>
+          <div class="order-list" id="order-q5">
+            <div class="order-item" draggable="true" data-val="3">
+              <span class="order-handle">⠿</span> Reducing excess water runoff
+            </div>
+            <div class="order-item" draggable="true" data-val="1">
+              <span class="order-handle">⠿</span> The scale of water pollution
+            </div>
+            <div class="order-item" draggable="true" data-val="4">
+              <span class="order-handle">⠿</span> Final reminder about chemicals on the ground
+            </div>
+            <div class="order-item" draggable="true" data-val="2">
+              <span class="order-handle">⠿</span> Things to stop throwing away harmfully
+            </div>
+          </div>
+          <button class="check-btn" id="check-q5" onclick="checkOrder('q5')">Check Order</button>
+          <div class="feedback" id="q5-fb"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══ SECTION B: SCANNING ══ -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-scan">🔍</div>
+        <div>
+          <div class="section-title">Section B — Scanning</div>
+          <div class="section-type">Reading for specific information</div>
+        </div>
+      </div>
+      <div class="section-body">
+
+        <!-- Q6 FILL IN -->
+        <div class="question" id="q6">
+          <div class="q-text"><span class="q-num">6</span> How many tons of waste are dumped into rivers, lakes and streams every day?</div>
+          <input class="fill-input" id="fill-q6" type="text" placeholder="Type your answer…" oninput="updateProgress()">
+          <br>
+          <button class="check-btn" id="check-q6" onclick="checkFill('q6',['two million','2 million','2,000,000'])">Check Answer</button>
+          <div class="feedback" id="q6-fb"></div>
+        </div>
+
+        <!-- Q7 MCQ -->
+        <div class="question" id="q7">
+          <div class="q-text"><span class="q-num">7</span> Which of these items should NEVER be thrown down a drain?</div>
+          <div class="options">
+            <div class="option" onclick="selectMCQ(this,'q7','A')"><div class="opt-letter">A</div><div class="opt-text">Tap water</div></div>
+            <div class="option" onclick="selectMCQ(this,'q7','B')"><div class="opt-letter">B</div><div class="opt-text">Toxic substances</div></div>
+            <div class="option" onclick="selectMCQ(this,'q7','C')"><div class="opt-letter">C</div><div class="opt-text">Rain water</div></div>
+            <div class="option" onclick="selectMCQ(this,'q7','D')"><div class="opt-letter">D</div><div class="opt-text">Soap water</div></div>
+          </div>
+          <div class="feedback" id="q7-fb"></div>
+        </div>
+
+        <!-- Q8 MCQ -->
+        <div class="question" id="q8">
+          <div class="q-text"><span class="q-num">8</span> What eco-friendly alternative to chemical fertilisers does the text mention?</div>
+          <div class="options">
+            <div class="option" onclick="selectMCQ(this,'q8','A')"><div class="opt-letter">A</div><div class="opt-text">Manure</div></div>
+            <div class="option" onclick="selectMCQ(this,'q8','B')"><div class="opt-letter">B</div><div class="opt-text">Compost</div></div>
+            <div class="option" onclick="selectMCQ(this,'q8','C')"><div class="opt-letter">C</div><div class="opt-text">Seaweed</div></div>
+            <div class="option" onclick="selectMCQ(this,'q8','D')"><div class="opt-letter">D</div><div class="opt-text">Sand</div></div>
+          </div>
+          <div class="feedback" id="q8-fb"></div>
+        </div>
+
+        <!-- Q9 FILL IN -->
+        <div class="question" id="q9">
+          <div class="q-text"><span class="q-num">9</span> Instead of hosing paths, what does the text suggest you should do?</div>
+          <input class="fill-input" id="fill-q9" type="text" placeholder="Type your answer…" oninput="updateProgress()">
+          <br>
+          <button class="check-btn" id="check-q9" onclick="checkFill('q9',['sweep','sweeping','sweep them','sweep the paths'])">Check Answer</button>
+          <div class="feedback" id="q9-fb"></div>
+        </div>
+
+        <!-- Q10 MATCHING -->
+        <div class="question" id="q10">
+          <div class="q-text"><span class="q-num">10</span> Match each problem to the solution given in the text. Click a problem, then click its matching solution.</div>
+          <div class="match-grid">
+            <div>
+              <div class="match-col-label">Problems</div>
+              <div style="display:flex;flex-direction:column;gap:8px;" id="match-left">
+                <div class="match-item" data-side="left" data-id="m1" onclick="matchClick(this)">Toxic substances</div>
+                <div class="match-item" data-side="left" data-id="m2" onclick="matchClick(this)">Dirty car</div>
+                <div class="match-item" data-side="left" data-id="m3" onclick="matchClick(this)">Grass clippings</div>
+                <div class="match-item" data-side="left" data-id="m4" onclick="matchClick(this)">Chemical fertilisers</div>
+              </div>
+            </div>
+            <div>
+              <div class="match-col-label">Solutions</div>
+              <div style="display:flex;flex-direction:column;gap:8px;" id="match-right">
+                <div class="match-item" data-side="right" data-id="m2" onclick="matchClick(this)">Take to a car wash</div>
+                <div class="match-item" data-side="right" data-id="m3" onclick="matchClick(this)">Do not let them reach storm drains</div>
+                <div class="match-item" data-side="right" data-id="m4" onclick="matchClick(this)">Use compost instead</div>
+                <div class="match-item" data-side="right" data-id="m1" onclick="matchClick(this)">Never put down a drain or soil</div>
+              </div>
+            </div>
+          </div>
+          <div class="feedback" id="q10-fb"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══ SECTION C: DETAILED READING ══ -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-detail">📝</div>
+        <div>
+          <div class="section-title">Section C — Detailed Reading</div>
+          <div class="section-type">Reading for deeper understanding</div>
+        </div>
+      </div>
+      <div class="section-body">
+
+        <!-- Q11 MCQ -->
+        <div class="question" id="q11">
+          <div class="q-text"><span class="q-num">11</span> According to the text, how does water pollution affect humans?</div>
+          <div class="options">
+            <div class="option" onclick="selectMCQ(this,'q11','A')"><div class="opt-letter">A</div><div class="opt-text">It makes them feel tired</div></div>
+            <div class="option" onclick="selectMCQ(this,'q11','B')"><div class="opt-letter">B</div><div class="opt-text">It can make them ill when pollution reaches the oceans they swim in</div></div>
+            <div class="option" onclick="selectMCQ(this,'q11','C')"><div class="opt-letter">C</div><div class="opt-text">It causes them to drink dirty water directly</div></div>
+            <div class="option" onclick="selectMCQ(this,'q11','D')"><div class="opt-letter">D</div><div class="opt-text">It stops them from fishing</div></div>
+          </div>
+          <div class="feedback" id="q11-fb"></div>
+        </div>
+
+        <!-- Q12 TRUE/FALSE -->
+        <div class="question" id="q12">
+          <div class="q-text"><span class="q-num">12</span> <em>True or False:</em> Using a hosepipe to clean paths is recommended to reduce water runoff.</div>
+          <div class="tf-group">
+            <button class="tf-btn" onclick="selectTF(this,'q12')">True</button>
+            <button class="tf-btn" onclick="selectTF(this,'q12')">False</button>
+          </div>
+          <div class="feedback" id="q12-fb"></div>
+        </div>
+
+        <!-- Q13 MCQ -->
+        <div class="question" id="q13">
+          <div class="q-text"><span class="q-num">13</span> Why does the text say car washes are a good idea for cleaning your vehicle?</div>
+          <div class="options">
+            <div class="option" onclick="selectMCQ(this,'q13','A')"><div class="opt-letter">A</div><div class="opt-text">They use less water</div></div>
+            <div class="option" onclick="selectMCQ(this,'q13','B')"><div class="opt-letter">B</div><div class="opt-text">They are cheaper</div></div>
+            <div class="option" onclick="selectMCQ(this,'q13','C')"><div class="opt-letter">C</div><div class="opt-text">They know how to dispose of waste water properly</div></div>
+            <div class="option" onclick="selectMCQ(this,'q13','D')"><div class="opt-letter">D</div><div class="opt-text">They use eco-friendly soap</div></div>
+          </div>
+          <div class="feedback" id="q13-fb"></div>
+        </div>
+
+        <!-- Q14 FILL IN -->
+        <div class="question" id="q14">
+          <div class="q-text"><span class="q-num">14</span> Complete the sentence from the text: "Basically, remember that anything that gets onto the ground can _________ end up in a river, lake or stream."</div>
+          <input class="fill-input" id="fill-q14" type="text" placeholder="Type the missing word…" oninput="updateProgress()">
+          <br>
+          <button class="check-btn" id="check-q14" onclick="checkFill('q14',['eventually'])">Check Answer</button>
+          <div class="feedback" id="q14-fb"></div>
+        </div>
+
+        <!-- Q15 MCQ INFERENCE -->
+        <div class="question" id="q15">
+          <div class="q-text"><span class="q-num">15</span> What can we infer from the phrase "spells bad news" in the text?</div>
+          <div class="options">
+            <div class="option" onclick="selectMCQ(this,'q15','A')"><div class="opt-letter">A</div><div class="opt-text">The writer is teaching spelling</div></div>
+            <div class="option" onclick="selectMCQ(this,'q15','B')"><div class="opt-letter">B</div><div class="opt-text">Water pollution creates serious negative consequences for living things</div></div>
+            <div class="option" onclick="selectMCQ(this,'q15','C')"><div class="opt-letter">C</div><div class="opt-text">Animals cannot read news about pollution</div></div>
+            <div class="option" onclick="selectMCQ(this,'q15','D')"><div class="opt-letter">D</div><div class="opt-text">The news channels are reporting on pollution</div></div>
+          </div>
+          <div class="feedback" id="q15-fb"></div>
+        </div>
+
+        <!-- Q16 MCQ VOCABULARY -->
+        <div class="question" id="q16">
+          <div class="q-text"><span class="q-num">16</span> The word <em>"restore"</em> in the text most closely means:</div>
+          <div class="options">
+            <div class="option" onclick="selectMCQ(this,'q16','A')"><div class="opt-letter">A</div><div class="opt-text">To destroy</div></div>
+            <div class="option" onclick="selectMCQ(this,'q16','B')"><div class="opt-letter">B</div><div class="opt-text">To find</div></div>
+            <div class="option" onclick="selectMCQ(this,'q16','C')"><div class="opt-letter">C</div><div class="opt-text">To bring back to a healthy state</div></div>
+            <div class="option" onclick="selectMCQ(this,'q16','D')"><div class="opt-letter">D</div><div class="opt-text">To measure</div></div>
+          </div>
+          <div class="feedback" id="q16-fb"></div>
+        </div>
+
+        <!-- Q17 TRUE/FALSE -->
+        <div class="question" id="q17">
+          <div class="q-text"><span class="q-num">17</span> <em>True or False:</em> Leaf litter washed into storm drains can harm aquatic creatures.</div>
+          <div class="tf-group">
+            <button class="tf-btn" onclick="selectTF(this,'q17')">True</button>
+            <button class="tf-btn" onclick="selectTF(this,'q17')">False</button>
+          </div>
+          <div class="feedback" id="q17-fb"></div>
+        </div>
+
+        <!-- Q18 MCQ CRITICAL -->
+        <div class="question" id="q18">
+          <div class="q-text"><span class="q-num">18</span> Why is it important that a sprinkler waters only the garden and not the pavement?</div>
+          <div class="options">
+            <div class="option" onclick="selectMCQ(this,'q18','A')"><div class="opt-letter">A</div><div class="opt-text">Pavements don't need watering and excess water becomes runoff that causes pollution</div></div>
+            <div class="option" onclick="selectMCQ(this,'q18','B')"><div class="opt-letter">B</div><div class="opt-text">It helps plants grow better</div></div>
+            <div class="option" onclick="selectMCQ(this,'q18','C')"><div class="opt-letter">C</div><div class="opt-text">Wet pavements are slippery and dangerous</div></div>
+            <div class="option" onclick="selectMCQ(this,'q18','D')"><div class="opt-letter">D</div><div class="opt-text">Gardens need more water than pavements</div></div>
+          </div>
+          <div class="feedback" id="q18-fb"></div>
+        </div>
+
+        <!-- Q19 FILL IN VOCABULARY -->
+        <div class="question" id="q19">
+          <div class="q-text"><span class="q-num">19</span> What word from the text means "creatures that live in water"? (Two words)</div>
+          <input class="fill-input" id="fill-q19" type="text" placeholder="Type two words…" oninput="updateProgress()">
+          <br>
+          <button class="check-btn" id="check-q19" onclick="checkFill('q19',['aquatic creatures'])">Check Answer</button>
+          <div class="feedback" id="q19-fb"></div>
+        </div>
+
+        <!-- Q20 MCQ CONCLUSION -->
+        <div class="question" id="q20">
+          <div class="q-text"><span class="q-num">20</span> What is the key message the author leaves the reader with at the end?</div>
+          <div class="options">
+            <div class="option" onclick="selectMCQ(this,'q20','A')"><div class="opt-letter">A</div><div class="opt-text">It is too late to save our waterways</div></div>
+            <div class="option" onclick="selectMCQ(this,'q20','B')"><div class="opt-letter">B</div><div class="opt-text">Only governments can solve water pollution</div></div>
+            <div class="option" onclick="selectMCQ(this,'q20','C')"><div class="opt-letter">C</div><div class="opt-text">Any chemicals or waste on the ground or down the drain can ultimately reach waterways</div></div>
+            <div class="option" onclick="selectMCQ(this,'q20','D')"><div class="opt-letter">D</div><div class="opt-text">Swimming in rivers is perfectly safe</div></div>
+          </div>
+          <div class="feedback" id="q20-fb"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-section" id="submit-section">
+      <button class="submit-btn" onclick="submitQuiz()">📋 Submit & See Results</button>
+      <div class="submit-note">Make sure you have answered all questions before submitting.</div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="results-screen">
+      <div class="result-card">
+        <div style="display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:16px;">
+          <div class="score-circle">
+            <div class="score-num" id="score-num">0</div>
+            <div class="score-total">/ 20</div>
+          </div>
+          <div class="grade-circle" id="grade-circle">
+            <div class="grade-num" id="grade-num">—</div>
+            <div class="grade-label">Grade</div>
+          </div>
+        </div>
+        <div class="result-name" id="result-name">Student Name</div>
+        <div class="result-msg" id="result-msg">Well done!</div>
+      </div>
+      <div class="results-list-card">
+        <div class="results-list-title">📋 Your Results</div>
+        <div id="results-list"></div>
+      </div>
+    </div>
+
+  </div><!-- end quiz-screen -->
+
+</div><!-- end container -->
+
+<script>
+// ══════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════
+let student    = {};
+let answers    = {};
+let submitted  = false;
+let matchSelected = null;
+let matchPairs = {};
+
+const FILL_MAP = {
+  q6:  ['two million','2 million','2,000,000'],
+  q9:  ['sweep','sweeping','sweep them','sweep the paths'],
+  q14: ['eventually'],
+  q19: ['aquatic creatures']
+};
+const MCQ_MAP  = {q1:'B',q2:'C',q3:'C',q7:'B',q8:'B',q11:'B',q13:'C',q15:'B',q16:'C',q18:'A',q20:'C'};
+const TF_MAP   = {q4:'False',q12:'False',q17:'True'};
+
+// ══════════════════════════════════════
+//  LOCAL STORAGE HELPERS  (persist across sessions)
+// ══════════════════════════════════════
+function storageKey(s) {
+  // unique key per student: name + class, lowercased, spaces removed
+  return 'wpt_' + (s.last+s.first+s.cls).toLowerCase().replace(/\s+/g,'');
+}
+
+function saveState() {
+  if (!student.started) return;
+  const list   = document.getElementById('order-q5');
+  const order  = list ? [...list.querySelectorAll('.order-item')].map(i => i.dataset.val) : [];
+  const fillVals = {};
+  Object.keys(FILL_MAP).forEach(id => {
+    const el = document.getElementById('fill-'+id);
+    if (el) fillVals[id] = el.value;
+  });
+  try {
+    localStorage.setItem(storageKey(student), JSON.stringify({
+      student, answers, submitted, matchPairs, order, fillVals,
+      savedAt: Date.now()
+    }));
+  } catch(e) {}
+}
+
+function loadStateForStudent(last, first, cls) {
+  try {
+    const raw = localStorage.getItem(storageKey({last,first,cls}));
+    return raw ? JSON.parse(raw) : null;
+  } catch(e) { return null; }
+}
+
+// ══════════════════════════════════════
+//  RESTORE UI FROM SAVED STATE
+// ══════════════════════════════════════
+function restoreUI(s) {
+  student    = s.student    || {};
+  answers    = s.answers    || {};
+  submitted  = s.submitted  || false;
+  matchPairs = s.matchPairs || {};
+
+  // Show quiz screen
+  document.getElementById('registration-screen').style.display = 'none';
+  document.getElementById('quiz-screen').style.display = 'block';
+  const { first, last, cls } = student;
+  document.getElementById('avatar-initials').textContent = (first[0]+last[0]).toUpperCase();
+  document.getElementById('bar-name').textContent  = first + ' ' + last;
+  document.getElementById('bar-class').textContent = 'Class: ' + cls;
+
+  // Restore MCQ selections
+  Object.entries(MCQ_MAP).forEach(([qid]) => {
+    if (!answers[qid]) return;
+    const letters = ['A','B','C','D'];
+    const idx = letters.indexOf(answers[qid]);
+    const opts = document.querySelectorAll('#'+qid+' .option');
+    if (opts[idx]) opts[idx].classList.add('selected');
+  });
+
+  // Restore TF selections
+  Object.keys(TF_MAP).forEach(qid => {
+    if (!answers[qid]) return;
+    const btns = document.querySelectorAll('#'+qid+' .tf-btn');
+    btns.forEach(b => { if (b.textContent.trim() === answers[qid]) b.classList.add('selected'); });
+  });
+
+  // Restore fill-in values
+  if (s.fillVals) {
+    Object.entries(s.fillVals).forEach(([id, val]) => {
+      const el = document.getElementById('fill-'+id);
+      if (el) el.value = val;
+      if (answers[id] !== undefined) {
+        const ok = FILL_MAP[id].some(a => val.toLowerCase() === a.toLowerCase());
+        if (el) { el.classList.add(ok ? 'correct' : 'wrong'); el.disabled = true; }
+        const btn = document.getElementById('check-'+id);
+        if (btn) btn.disabled = true;
+        const fb = document.getElementById(id+'-fb');
+        if (fb) { fb.className = 'feedback show ' + (ok?'ok':'no'); fb.textContent = ok ? '✅ Correct!' : '❌ Not quite. Correct: ' + FILL_MAP[id][0]; }
+      }
+    });
+  }
+
+  // Restore drag order
+  if (s.order && s.order.length === 4) {
+    const list = document.getElementById('order-q5');
+    const items = [...list.querySelectorAll('.order-item')];
+    s.order.forEach(val => {
+      const item = items.find(i => i.dataset.val === val);
+      if (item) list.appendChild(item);
+    });
+    if (answers['q5'] === '1,2,3,4') {
+      list.querySelectorAll('.order-item').forEach(i => i.classList.add('correct-order'));
+      const btn = document.getElementById('check-q5');
+      if (btn) btn.disabled = true;
+      const fb = document.getElementById('q5-fb');
+      if (fb) { fb.className = 'feedback show ok'; fb.textContent = '✅ Perfect order!'; }
+    }
+  }
+
+  // Restore matching pairs
+  Object.keys(matchPairs).forEach(id => {
+    document.querySelectorAll('.match-item').forEach(el => {
+      if (el.dataset.id === id) el.classList.add('matched');
+    });
+  });
+  if (Object.keys(matchPairs).length === 4) {
+    const fb = document.getElementById('q10-fb');
+    if (fb) { fb.className = 'feedback show ok'; fb.textContent = '✅ All pairs matched correctly!'; }
+  }
+
+  initDragDrop();
+  updateProgress();
+
+  if (submitted) {
+    _renderResults();
+    document.getElementById('submit-section').style.display = 'none';
+    document.getElementById('results-screen').style.display = 'block';
+    document.querySelectorAll('.option,.tf-btn').forEach(o => o.classList.add('disabled'));
+    document.querySelectorAll('.match-item').forEach(m => m.classList.add('disabled'));
+    document.querySelectorAll('.order-item').forEach(i => i.setAttribute('draggable','false'));
+    ['q6','q9','q14','q19'].forEach(id => {
+      const el = document.getElementById('fill-'+id); if (el) el.disabled = true;
+      const btn = document.getElementById('check-'+id); if (btn) btn.disabled = true;
+    });
+    const oBtn = document.getElementById('check-q5'); if (oBtn) oBtn.disabled = true;
+  }
+}
+
+// ══════════════════════════════════════
+//  RESUME SCREEN (replaces reg form when save exists)
+// ══════════════════════════════════════
+function showResumeScreen(saved) {
+  const { first, last, cls, savedAt } = saved.student;
+  const when = savedAt ? new Date(savedAt).toLocaleString('en-GB', {day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}) : '';
+  const answered = Object.keys(saved.answers || {}).length;
+  const status = saved.submitted ? 'Test completed ✓' : `${answered} / 20 questions answered`;
+
+  // Hide registration form entirely
+  const regScreen = document.getElementById('registration-screen');
+  regScreen.innerHTML = `
+    <div style="text-align:center; padding: 8px 0 20px;">
+      <div style="font-size:48px; margin-bottom:12px;">👋</div>
+      <h2 style="font-family:'Playfair Display',serif; font-size:22px; color:var(--ocean); margin-bottom:6px;">Welcome back!</h2>
+      <p style="color:var(--muted); font-size:14px; font-style:italic; margin-bottom:28px;">Your progress has been saved on this device.</p>
+      <div style="background:linear-gradient(135deg,#e8f4fd,#d0eaf8); border:2px solid var(--wave); border-radius:14px; padding:20px 24px; text-align:left; display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:24px;">
+        <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--ocean),var(--wave));color:white;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:18px;flex-shrink:0;">${(first[0]+last[0]).toUpperCase()}</div>
+        <div style="flex:1;">
+          <div style="font-family:'Playfair Display',serif;font-size:17px;color:var(--ocean);font-weight:700;">${first} ${last}</div>
+          <div style="font-size:13px;color:#2d5a88;margin-top:3px;">Class ${cls} · ${status}${when ? ' · Saved ' + when : ''}</div>
+        </div>
+      </div>
+      <button class="start-btn" onclick="resumeSession()">Continue Test →</button>
+    </div>
+  `;
+  window._pendingResume = saved;
+}
+
+function resumeSession() {
+  if (window._pendingResume) restoreUI(window._pendingResume);
+}
+
+function clearResume() {
+  if (window._pendingResume) {
+    try { localStorage.removeItem(storageKey(window._pendingResume.student)); } catch(e) {}
+    window._pendingResume = null;
+  }
+}
+
+// ══════════════════════════════════════
+//  INIT ON PAGE LOAD
+// ══════════════════════════════════════
+document.getElementById('reg-date').value = new Date().toLocaleDateString('en-GB');
+
+window.addEventListener('DOMContentLoaded', () => {
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith('wpt_')) {
+        const raw = localStorage.getItem(key);
+        const saved = raw ? JSON.parse(raw) : null;
+        if (saved && saved.student && saved.student.started) {
+          showResumeScreen(saved);
+          break;
+        }
+      }
+    }
+  } catch(e) {}
+  initDragDrop();
+});
+
+// ══════════════════════════════════════
+//  REGISTRATION
+// ══════════════════════════════════════
+function startQuiz() {
+  const last  = document.getElementById('reg-last').value.trim();
+  const first = document.getElementById('reg-first').value.trim();
+  const cls   = document.getElementById('reg-class').value.trim();
+  if (!last || !first || !cls) { alert('Please fill in all fields before starting!'); return; }
+  student = { last, first, cls, date: document.getElementById('reg-date').value, started: true };
+  // Clear any old save for this student so they get a clean slate
+  try { localStorage.removeItem(storageKey(student)); } catch(e) {}
+  window._pendingResume = null;
+  document.getElementById('registration-screen').style.display = 'none';
+  document.getElementById('quiz-screen').style.display = 'block';
+  document.getElementById('avatar-initials').textContent = (first[0]+last[0]).toUpperCase();
+  document.getElementById('bar-name').textContent  = first + ' ' + last;
+  document.getElementById('bar-class').textContent = 'Class: ' + cls;
+  initDragDrop();
+  saveState();
+}
+
+// ══════════════════════════════════════
+//  PROGRESS
+// ══════════════════════════════════════
+function updateProgress() {
+  const total = 20;
+  let done = Object.keys(answers).length;
+  Object.keys(FILL_MAP).forEach(id => {
+    const el = document.getElementById('fill-'+id);
+    if (el && el.value.trim() && !answers[id]) done++;
+  });
+  const pct = Math.min(100, Math.round((done/total)*100));
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = done + ' / ' + total;
+}
+
+// ══════════════════════════════════════
+//  MCQ
+// ══════════════════════════════════════
+function selectMCQ(el, qid, letter) {
+  if (submitted) return;
+  el.closest('.options').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  answers[qid] = letter;
+  updateProgress();
+  saveState();
+}
+
+// ══════════════════════════════════════
+//  TRUE / FALSE
+// ══════════════════════════════════════
+function selectTF(el, qid) {
+  if (submitted) return;
+  el.closest('.tf-group').querySelectorAll('.tf-btn').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  answers[qid] = el.textContent.trim();
+  updateProgress();
+  saveState();
+}
+
+// ══════════════════════════════════════
+//  FILL IN
+// ══════════════════════════════════════
+function checkFill(qid, acceptedArr) {
+  if (submitted) return;
+  const input = document.getElementById('fill-'+qid);
+  const val   = input.value.trim().toLowerCase();
+  const fb    = document.getElementById(qid+'-fb');
+  const btn   = document.getElementById('check-'+qid);
+  const ok    = acceptedArr.some(a => val === a.toLowerCase());
+  input.classList.add(ok ? 'correct' : 'wrong');
+  input.disabled = true;
+  btn.disabled   = true;
+  fb.className   = 'feedback show ' + (ok ? 'ok' : 'no');
+  fb.textContent = ok ? '✅ Correct!' : '❌ Not quite. Correct: ' + acceptedArr[0];
+  answers[qid]   = val;
+  updateProgress();
+  saveState();
+}
+
+// ══════════════════════════════════════
+//  MATCHING
+// ══════════════════════════════════════
+function matchClick(el) {
+  if (submitted || el.classList.contains('matched') || el.classList.contains('disabled')) return;
+  const side = el.dataset.side;
+  const id   = el.dataset.id;
+
+  if (!matchSelected) {
+    document.querySelectorAll('.match-item.active').forEach(m => m.classList.remove('active'));
+    el.classList.add('active');
+    matchSelected = el;
+    return;
+  }
+  const prevSide = matchSelected.dataset.side;
+  if (prevSide === side) {
+    document.querySelectorAll('.match-item.active').forEach(m => m.classList.remove('active'));
+    el.classList.add('active');
+    matchSelected = el;
+    return;
+  }
+  const leftId  = side === 'right' ? matchSelected.dataset.id : id;
+  const rightId = side === 'right' ? id : matchSelected.dataset.id;
+  const leftEl  = side === 'right' ? matchSelected : el;
+  const rightEl = side === 'right' ? el : matchSelected;
+
+  if (leftId === rightId) {
+    leftEl.classList.add('matched');
+    rightEl.classList.add('matched');
+    matchPairs[leftId] = rightId;
+    document.getElementById('q10-fb').className = '';
+    if (Object.keys(matchPairs).length === 4) {
+      answers['q10'] = 'complete';
+      const fb = document.getElementById('q10-fb');
+      fb.className   = 'feedback show ok';
+      fb.textContent = '✅ All pairs matched correctly!';
+      updateProgress();
+    }
+    saveState();
+  } else {
+    leftEl.classList.add('wrong-match');
+    rightEl.classList.add('wrong-match');
+    setTimeout(() => {
+      leftEl.classList.remove('wrong-match','active');
+      rightEl.classList.remove('wrong-match','active');
+    }, 600);
+  }
+  matchSelected = null;
+  document.querySelectorAll('.match-item.active').forEach(m => m.classList.remove('active'));
+}
+
+// ══════════════════════════════════════
+//  DRAG & DROP ORDER  (mouse + touch)
+// ══════════════════════════════════════
+function initDragDrop() {
+  const list = document.getElementById('order-q5');
+  if (!list) return;
+
+  // ── MOUSE (desktop) ──
+  let dragSrc = null;
+
+  list.querySelectorAll('.order-item').forEach(item => {
+    item.addEventListener('dragstart', function() {
+      dragSrc = this;
+      this.classList.add('dragging');
+    });
+    item.addEventListener('dragend', function() {
+      this.classList.remove('dragging');
+      list.querySelectorAll('.order-item.over').forEach(i => i.classList.remove('over'));
+      saveState();
+    });
+    item.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      list.querySelectorAll('.order-item.over').forEach(i => i.classList.remove('over'));
+      this.classList.add('over');
+    });
+    item.addEventListener('dragleave', function() {
+      this.classList.remove('over');
+    });
+    item.addEventListener('drop', function(e) {
+      e.preventDefault();
+      if (dragSrc && dragSrc !== this) {
+        const items = [...list.querySelectorAll('.order-item')];
+        const srcIdx = items.indexOf(dragSrc);
+        const tgtIdx = items.indexOf(this);
+        if (srcIdx < tgtIdx) list.insertBefore(dragSrc, this.nextSibling);
+        else list.insertBefore(dragSrc, this);
+      }
+      this.classList.remove('over');
+    });
+  });
+
+  // ── TOUCH (mobile / tablet) ──
+  let touchSrc    = null;   // element being dragged
+  let touchClone  = null;   // visual ghost
+  let touchOffset = { x: 0, y: 0 };
+
+  function getTouchTarget(x, y) {
+    // Temporarily hide clone so elementFromPoint works
+    if (touchClone) touchClone.style.display = 'none';
+    const el = document.elementFromPoint(x, y);
+    if (touchClone) touchClone.style.display = '';
+    if (!el) return null;
+    return el.closest('.order-item');
+  }
+
+  list.querySelectorAll('.order-item').forEach(item => {
+
+    item.addEventListener('touchstart', function(e) {
+      if (submitted) return;
+      e.preventDefault();
+      touchSrc = this;
+      this.classList.add('dragging');
+
+      const touch  = e.touches[0];
+      const rect   = this.getBoundingClientRect();
+      touchOffset  = { x: touch.clientX - rect.left, y: touch.clientY - rect.top };
+
+      // Create ghost clone
+      touchClone = this.cloneNode(true);
+      touchClone.style.cssText = `
+        position: fixed;
+        z-index: 9999;
+        width: ${rect.width}px;
+        opacity: 0.85;
+        pointer-events: none;
+        border: 2px solid var(--wave);
+        border-radius: 10px;
+        background: #d0eaf8;
+        box-shadow: 0 6px 24px rgba(10,61,98,0.25);
+        left: ${touch.clientX - touchOffset.x}px;
+        top:  ${touch.clientY - touchOffset.y}px;
+      `;
+      document.body.appendChild(touchClone);
+    }, { passive: false });
+
+    item.addEventListener('touchmove', function(e) {
+      if (!touchSrc || !touchClone) return;
+      e.preventDefault();
+      const touch = e.touches[0];
+
+      // Move ghost
+      touchClone.style.left = (touch.clientX - touchOffset.x) + 'px';
+      touchClone.style.top  = (touch.clientY - touchOffset.y) + 'px';
+
+      // Highlight target
+      list.querySelectorAll('.order-item.over').forEach(i => i.classList.remove('over'));
+      const target = getTouchTarget(touch.clientX, touch.clientY);
+      if (target && target !== touchSrc) target.classList.add('over');
+    }, { passive: false });
+
+    item.addEventListener('touchend', function(e) {
+      if (!touchSrc) return;
+      e.preventDefault();
+
+      const touch  = e.changedTouches[0];
+      const target = getTouchTarget(touch.clientX, touch.clientY);
+
+      if (target && target !== touchSrc) {
+        const items  = [...list.querySelectorAll('.order-item')];
+        const srcIdx = items.indexOf(touchSrc);
+        const tgtIdx = items.indexOf(target);
+        if (srcIdx < tgtIdx) list.insertBefore(touchSrc, target.nextSibling);
+        else list.insertBefore(touchSrc, target);
+      }
+
+      // Cleanup
+      touchSrc.classList.remove('dragging');
+      list.querySelectorAll('.order-item.over').forEach(i => i.classList.remove('over'));
+      if (touchClone) { touchClone.remove(); touchClone = null; }
+      touchSrc = null;
+      saveState();
+    }, { passive: false });
+
+    item.addEventListener('touchcancel', function() {
+      if (touchSrc) touchSrc.classList.remove('dragging');
+      list.querySelectorAll('.order-item.over').forEach(i => i.classList.remove('over'));
+      if (touchClone) { touchClone.remove(); touchClone = null; }
+      touchSrc = null;
+    });
+  });
+}
+
+function checkOrder(qid) {
+  if (submitted) return;
+  const list  = document.getElementById('order-'+qid);
+  const items = [...list.querySelectorAll('.order-item')];
+  const vals  = items.map(i => parseInt(i.dataset.val));
+  const ok    = vals.join(',') === '1,2,3,4';
+  const fb    = document.getElementById(qid+'-fb');
+  fb.className = 'feedback show ' + (ok ? 'ok' : 'no');
+  if (ok) {
+    fb.textContent = '✅ Perfect order!';
+    items.forEach(i => i.classList.add('correct-order'));
+    answers[qid] = vals.join(',');
+  } else {
+    fb.textContent = '❌ Not quite. Try again! Think: problem → first actions → runoff reduction → conclusion.';
+  }
+  document.getElementById('check-'+qid).disabled = ok;
+  updateProgress();
+  saveState();
+}
+
+// ══════════════════════════════════════
+//  SHARED SCORE + RESULTS RENDERER
+// ══════════════════════════════════════
+function isOk(qid) {
+  if (MCQ_MAP[qid])  return answers[qid] === MCQ_MAP[qid];
+  if (TF_MAP[qid])   return answers[qid] === TF_MAP[qid];
+  if (FILL_MAP[qid]) { const v=(answers[qid]||'').toLowerCase(); return FILL_MAP[qid].some(a=>v===a.toLowerCase()); }
+  if (qid==='q5')    return answers[qid]==='1,2,3,4';
+  if (qid==='q10')   return Object.keys(matchPairs).length===4;
+  return false;
+}
+
+const Q_LABELS = {
+  q1:'What is the text mainly about?',
+  q2:'What is the general tone of the text?',
+  q3:'Who is the intended audience?',
+  q4:'True/False: The text gives a hopeless picture.',
+  q5:'Order the main ideas of the text.',
+  q6:'How many tons of waste per day?',
+  q7:'What should NEVER be thrown down a drain?',
+  q8:'Eco-friendly alternative to chemical fertilisers?',
+  q9:'Instead of hosing paths, you should…?',
+  q10:'Match each problem to its solution.',
+  q11:'How does water pollution affect humans?',
+  q12:'True/False: Using a hosepipe is recommended.',
+  q13:'Why are car washes a good idea?',
+  q14:'Complete the sentence (missing word).',
+  q15:'What does "spells bad news" mean?',
+  q16:'What does the word "restore" mean?',
+  q17:'True/False: Leaves in storm drains can harm aquatic creatures.',
+  q18:'Why water only the garden, not the pavement?',
+  q19:'Two-word phrase for "creatures that live in water".',
+  q20:'What is the key message at the end of the text?'
+};
+
+const SECTIONS = [
+  { label: 'Section A — Skimming',        qs: ['q1','q2','q3','q4','q5'],                           start: 1 },
+  { label: 'Section B — Scanning',        qs: ['q6','q7','q8','q9','q10'],                          start: 6 },
+  { label: 'Section C — Detailed Reading',qs: ['q11','q12','q13','q14','q15','q16','q17','q18','q19','q20'], start: 11 }
+];
+
+function _renderResults() {
+  const allQids = SECTIONS.flatMap(s => s.qs);
+  const score   = allQids.filter(q => isOk(q)).length;
+  const pct     = Math.round((score/20)*100);
+
+  // Grade calculation
+  let grade, gradeClass, msg;
+  if (pct >= 90)      { grade = 5; gradeClass = 'g5'; msg = '🌟 Outstanding! Excellent reading skills!'; }
+  else if (pct >= 70) { grade = 4; gradeClass = 'g4'; msg = '👍 Great job! You understand the text very well.'; }
+  else if (pct >= 50) { grade = 3; gradeClass = 'g3'; msg = '📚 Good effort! Keep practising your reading.'; }
+  else                { grade = 2; gradeClass = 'g2'; msg = '💪 Keep going! Read the text again carefully.'; }
+
+  document.getElementById('score-num').textContent  = score;
+  document.getElementById('result-name').textContent = student.first + ' ' + student.last + ' · Class ' + student.cls;
+  document.getElementById('result-msg').textContent  = msg + ' (' + pct + '%)';
+
+  const gradeCircle = document.getElementById('grade-circle');
+  gradeCircle.className = 'grade-circle ' + gradeClass;
+  document.getElementById('grade-num').textContent = grade;
+
+  const listEl = document.getElementById('results-list');
+  listEl.innerHTML = '';
+  SECTIONS.forEach(sec => {
+    const secHeader = document.createElement('div');
+    secHeader.className   = 'result-section-header';
+    secHeader.textContent = sec.label;
+    listEl.appendChild(secHeader);
+    sec.qs.forEach((qid, i) => {
+      const ok  = isOk(qid);
+      const row = document.createElement('div');
+      row.className = 'result-row';
+      row.innerHTML = `
+        <div class="result-badge ${ok?'ok':'no'}">${ok?'✓':'✗'}</div>
+        <div class="result-q-num">Q${sec.start+i}</div>
+        <div class="result-q-text">${Q_LABELS[qid]}</div>
+        <div class="result-status ${ok?'ok':'no'}">${ok?'Correct':'Not correct'}</div>
+      `;
+      listEl.appendChild(row);
+    });
+  });
+}
+
+// ══════════════════════════════════════
+//  SUBMIT
+// ══════════════════════════════════════
+function submitQuiz() {
+  submitted = true;
+
+  // Lock all interactive elements
+  document.querySelectorAll('.option,.tf-btn').forEach(o => o.classList.add('disabled'));
+  document.querySelectorAll('.match-item').forEach(m => m.classList.add('disabled'));
+  document.querySelectorAll('.order-item').forEach(i => i.setAttribute('draggable','false'));
+  ['q6','q9','q14','q19'].forEach(id => {
+    const el = document.getElementById('fill-'+id); if (el && !el.disabled) el.disabled = true;
+    const btn = document.getElementById('check-'+id); if (btn) btn.disabled = true;
+  });
+  const oBtn = document.getElementById('check-q5'); if (oBtn) oBtn.disabled = true;
+
+  // Hide inline feedbacks
+  document.querySelectorAll('.feedback').forEach(f => { f.className = 'feedback'; });
+
+  _renderResults();
+  saveState();
+
+  document.getElementById('submit-section').style.display = 'none';
+  const resultDiv = document.getElementById('results-screen');
+  resultDiv.style.display = 'block';
+  resultDiv.scrollIntoView({ behavior: 'smooth' });
+}
+
+// ══════════════════════════════════════
+//  CANVAS TEXT PROTECTION
+//  Replaces visible text in questions/options with canvas images
+//  so browser translators (Yandex, Safari) cannot read it
+// ══════════════════════════════════════
+
+const CANVAS_FONT_BODY = "15px 'Source Serif 4', Georgia, serif";
+const CANVAS_FONT_BOLD = "600 15px 'Source Serif 4', Georgia, serif";
+const CANVAS_FONT_NUM  = "bold 12px 'Source Serif 4', Georgia, serif";
+const CANVAS_COLOR     = "#2d3748";
+const CANVAS_OCEAN     = "#0a3d62";
+const CANVAS_WAVE      = "#1e6fa8";
+const CANVAS_MUTED     = "#6b7280";
+
+// Measure wrapped text height for a given width
+function measureWrappedText(ctx, text, maxW, lineH) {
+  const words = text.split(' ');
+  let line = '', lines = 0;
+  for (const w of words) {
+    const test = line ? line + ' ' + w : w;
+    if (ctx.measureText(test).width > maxW && line) { lines++; line = w; }
+    else line = test;
+  }
+  if (line) lines++;
+  return lines * lineH;
+}
+
+// Draw wrapped text, returns final Y after last line
+function drawWrapped(ctx, text, x, y, maxW, lineH) {
+  const words = text.split(' ');
+  let line = '';
+  for (const w of words) {
+    const test = line ? line + ' ' + w : w;
+    if (ctx.measureText(test).width > maxW && line) {
+      ctx.fillText(line, x, y);
+      y += lineH; line = w;
+    } else line = test;
+  }
+  if (line) ctx.fillText(line, x, y);
+  return y + lineH;
+}
+
+// Replace text content of an element with a canvas rendering
+function canvasifyElement(el, opts = {}) {
+  const {
+    font       = CANVAS_FONT_BODY,
+    color      = CANVAS_COLOR,
+    lineH      = 22,
+    paddingX   = 0,
+    paddingY   = 4,
+    bold       = false,
+    numPrefix  = '',   // e.g. "1" for question numbers
+    italic     = false
+  } = opts;
+
+  const text = el.innerText || el.textContent || '';
+  if (!text.trim()) return;
+
+  // Hide original text but keep layout
+  el.style.color = 'transparent';
+  el.style.userSelect = 'none';
+  el.style.position = 'relative';
+
+  // Create canvas overlay
+  const cvs = document.createElement('canvas');
+  cvs.style.position = 'absolute';
+  cvs.style.top = '0';
+  cvs.style.left = '0';
+  cvs.style.pointerEvents = 'none'; // clicks pass through to element below
+  cvs.setAttribute('aria-hidden', 'true');
+  el.appendChild(cvs);
+
+  function render() {
+    const dpr  = window.devicePixelRatio || 1;
+    const w    = el.offsetWidth  || 300;
+    const h    = el.offsetHeight || lineH + paddingY * 2;
+
+    cvs.width  = w * dpr;
+    cvs.height = h * dpr;
+    cvs.style.width  = w + 'px';
+    cvs.style.height = h + 'px';
+
+    const ctx = cvs.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = color;
+    ctx.font = italic ? font.replace('600', '').replace('bold', '').trim().replace('15px', 'italic 15px') : font;
+    ctx.textBaseline = 'top';
+
+    drawWrapped(ctx, text, paddingX, paddingY, w - paddingX * 2, lineH);
+  }
+
+  // Render now and on resize
+  requestAnimationFrame(render);
+  new ResizeObserver(render).observe(el);
+}
+
+// Render a question-text element (has number badge + text)
+function canvasifyQText(el) {
+  const numSpan = el.querySelector('.q-num');
+  const numText = numSpan ? numSpan.textContent.trim() : '';
+  // Hide the original num span
+  if (numSpan) numSpan.style.color = 'transparent';
+
+  // Hide original text nodes
+  el.style.color = 'transparent';
+  el.style.position = 'relative';
+  el.style.userSelect = 'none';
+
+  const cvs = document.createElement('canvas');
+  cvs.style.position = 'absolute';
+  cvs.style.top = '0';
+  cvs.style.left = '0';
+  cvs.style.pointerEvents = 'none';
+  cvs.setAttribute('aria-hidden', 'true');
+  el.appendChild(cvs);
+
+  // Get full question text (strip the number badge text)
+  const fullText = el.innerText.replace(numText, '').trim();
+
+  function render() {
+    const dpr = window.devicePixelRatio || 1;
+    const w   = el.offsetWidth  || 400;
+    const h   = el.offsetHeight || 26;
+
+    cvs.width  = w * dpr;
+    cvs.height = h * dpr;
+    cvs.style.width  = w + 'px';
+    cvs.style.height = h + 'px';
+
+    const ctx = cvs.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+    ctx.textBaseline = 'top';
+
+    // Draw number badge
+    if (numText) {
+      const badgeW = 24, badgeH = 18, badgeR = 4, badgeX = 0, badgeY = 2;
+      ctx.fillStyle = CANVAS_OCEAN;
+      ctx.beginPath();
+      ctx.roundRect(badgeX, badgeY, badgeW, badgeH, badgeR);
+      ctx.fill();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = CANVAS_FONT_NUM;
+      ctx.textAlign = 'center';
+      ctx.fillText(numText, badgeX + badgeW / 2, badgeY + 3);
+      ctx.textAlign = 'left';
+    }
+
+    // Draw question text
+    ctx.fillStyle = CANVAS_COLOR;
+    ctx.font = CANVAS_FONT_BOLD;
+    drawWrapped(ctx, fullText, 30, 2, w - 32, 22);
+  }
+
+  requestAnimationFrame(render);
+  new ResizeObserver(render).observe(el);
+}
+
+// Render an MCQ option (letter badge + text)
+function canvasifyOption(optEl) {
+  const letterEl = optEl.querySelector('.opt-letter');
+  const textEl   = optEl.querySelector('.opt-text');
+  if (!letterEl || !textEl) return;
+
+  const letter = letterEl.textContent.trim();
+  const text   = textEl.textContent.trim();
+
+  // Hide original text
+  letterEl.style.color = 'transparent';
+  textEl.style.color   = 'transparent';
+  optEl.style.position = 'relative';
+
+  const cvs = document.createElement('canvas');
+  cvs.style.position = 'absolute';
+  cvs.style.top = '0';
+  cvs.style.left = '0';
+  cvs.style.pointerEvents = 'none';
+  cvs.setAttribute('aria-hidden', 'true');
+  optEl.appendChild(cvs);
+
+  function render() {
+    const dpr = window.devicePixelRatio || 1;
+    const w   = optEl.offsetWidth  || 300;
+    const h   = optEl.offsetHeight || 44;
+
+    cvs.width  = w * dpr;
+    cvs.height = h * dpr;
+    cvs.style.width  = w + 'px';
+    cvs.style.height = h + 'px';
+
+    const ctx = cvs.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+    ctx.textBaseline = 'middle';
+
+    // Letter badge (circle)
+    const cx = 22, cy = h / 2, r = 13;
+    ctx.fillStyle = CANVAS_OCEAN;
+    // Update badge color based on current option state
+    if (optEl.classList.contains('correct'))        ctx.fillStyle = '#28a745';
+    else if (optEl.classList.contains('wrong'))     ctx.fillStyle = '#dc3545';
+    else if (optEl.classList.contains('reveal-correct')) ctx.fillStyle = '#28a745';
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(letter, cx, cy + 1);
+    ctx.textAlign = 'left';
+
+    // Option text
+    ctx.fillStyle = CANVAS_COLOR;
+    ctx.font = CANVAS_FONT_BODY;
+    drawWrapped(ctx, text, 44, h / 2 - 10, w - 52, 20);
+  }
+
+  requestAnimationFrame(render);
+  new ResizeObserver(render).observe(optEl);
+
+  // Re-render on state change (selected, correct, wrong)
+  const stateObserver = new MutationObserver(render);
+  stateObserver.observe(optEl, { attributes: true, attributeFilter: ['class'] });
+}
+
+// Canvasify a match-item
+function canvasifyMatchItem(el) {
+  const text = el.textContent.trim();
+  el.style.color    = 'transparent';
+  el.style.position = 'relative';
+  el.style.userSelect = 'none';
+
+  const cvs = document.createElement('canvas');
+  cvs.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;';
+  cvs.setAttribute('aria-hidden', 'true');
+  el.appendChild(cvs);
+
+  function render() {
+    const dpr = window.devicePixelRatio || 1;
+    const w   = el.offsetWidth  || 160;
+    const h   = el.offsetHeight || 40;
+    cvs.width  = w * dpr; cvs.height = h * dpr;
+    cvs.style.width = w + 'px'; cvs.style.height = h + 'px';
+    const ctx = cvs.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = CANVAS_COLOR;
+    ctx.font = '14px "Source Serif 4", Georgia, serif';
+    ctx.textBaseline = 'top';
+    drawWrapped(ctx, text, 10, 8, w - 20, 20);
+  }
+
+  requestAnimationFrame(render);
+  new ResizeObserver(render).observe(el);
+  new MutationObserver(render).observe(el, { attributes: true, attributeFilter: ['class'] });
+}
+
+// Canvasify an order-item (keep handle icon visible, protect text)
+function canvasifyOrderItem(el) {
+  const handleSpan = el.querySelector('.order-handle');
+  const text = el.textContent.replace(handleSpan ? handleSpan.textContent : '', '').trim();
+
+  // Hide text nodes but keep handle
+  el.childNodes.forEach(n => {
+    if (n.nodeType === Node.TEXT_NODE) n.textContent = '\u00A0';
+  });
+  el.style.position = 'relative';
+
+  const cvs = document.createElement('canvas');
+  cvs.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;';
+  cvs.setAttribute('aria-hidden', 'true');
+  el.appendChild(cvs);
+
+  function render() {
+    const dpr = window.devicePixelRatio || 1;
+    const w   = el.offsetWidth  || 300;
+    const h   = el.offsetHeight || 40;
+    cvs.width  = w * dpr; cvs.height = h * dpr;
+    cvs.style.width = w + 'px'; cvs.style.height = h + 'px';
+    const ctx = cvs.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = CANVAS_COLOR;
+    ctx.font = '14px "Source Serif 4", Georgia, serif';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, 36, h / 2 + 1);
+  }
+
+  requestAnimationFrame(render);
+  new ResizeObserver(render).observe(el);
+}
+
+// ── MAIN: run canvasification after quiz screen is shown ──
+function applyCanvasProtection() {
+  // Question texts
+  document.querySelectorAll('.q-text').forEach(canvasifyQText);
+
+  // MCQ option texts
+  document.querySelectorAll('.option').forEach(canvasifyOption);
+
+  // Match items
+  document.querySelectorAll('.match-item').forEach(canvasifyMatchItem);
+
+  // Order items
+  document.querySelectorAll('.order-item').forEach(canvasifyOrderItem);
+}
+
+// Patch startQuiz and resumeSession to call applyCanvasProtection after render
+const _origStartQuiz = startQuiz;
+window.startQuiz = function() {
+  _origStartQuiz();
+  setTimeout(applyCanvasProtection, 120);
+};
+
+const _origResumeSession = resumeSession;
+window.resumeSession = function() {
+  _origResumeSession();
+  setTimeout(applyCanvasProtection, 120);
+};
+</script>
+</body>
+</html>
